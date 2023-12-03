@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="#" />
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+   
+
+    </head>
+    
+<body>
+    <header>
+        <h1>Christmas Gift Checker</h1>
+      </header>
+  
+      <section class="container">
+
+        
+        <form id="my-form" style=" visibility: visible;" >
+
+          <div class="msg"></div>
+          
+          <div id="ageD" >
+            <label for="age">Enter your age:</label>
+            <input type="text" id="age" oninput="myFunction()"> 
+          </div>
+
+           <div id="goodD" style=" visibility: hidden;">
+            <label for="good">Have you been good this year? (yes/no):</label>
+            <input type="text" id="good">
+          </div>
+
+          <input class="btn" type="submit" value="Submit">
+        </form>
+        <div id="answer1"> </div>
+        <div id="answer2"></div>
+        <hr>
+        <ul id="users"></ul>
+  
+        <!-- <ul class="items">
+          <li class="item">Item 1</li>
+          <li class="item">Item 2</li>
+          <li class="item">Item 3</li>
+        </ul> -->
+      </section>
+
+    <script src="main.js"></script> 
+
+</body>
