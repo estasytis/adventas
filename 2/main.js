@@ -35,7 +35,7 @@ function onSubmit(e) {
       const li = document.createElement('li');
 
       if(ageInput.value>=18){
-        li.appendChild(document.createTextNode(`${ageInput.value}: Congratulations! You are on Santa’s Nice 👼 list! `));
+        li.appendChild(document.createTextNode(` Congratulations! You are on Santa’s Nice 👼 list! `));
       }
       else{
 
