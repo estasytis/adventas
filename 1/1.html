@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="#" />
+        <meta charset="UTF-8">
+       
+
+    </head>
+    <style>
+         th, td {
+          border: 1px solid;
+          padding: 10px;
+        }
+    </style>
+<body>
+
+<h1>Gift Wrapping Calculator</h1>
+<p>Pradiniai duomenys skaitomi iš failo 'gifts.json' </p>
+<div id="giftsTable"></div>
+
+<script >
+    
+    function verifyJson(input){
+        try {
+            JSON.parse(input);
+        } catch(ex) {
+            return ex.message;  
+        }
+        return true; 
+    }
+
+    response =  fetch('./gifts.json')
+    .then((response) =>{  
+       if(!response.ok){          
+        return false;
+       }    
+       else{     
+        return response.text();
+       }       
+    })
+    .then( (json) => {
+       
+        let text="Nėra failo. ";   
+        if(json!=false)
+        {   
+           
+            if(verifyJson(json)!=true){
+                text="Neteisingas failo formatas";
+            }            
+            else{
+                json=JSON.parse(json);
+                let sum=0;
+                text = "<table><tr><th> Width </th><th> Height</th><th>Lenght</th><th>Amount</th></tr> ";
+                
+                for (let i in json.gifts) {
+                    
+                    let width = json.gifts[i].width;
+                    let height = json.gifts[i].height;
+                    let length = json.gifts[i].length;
+                    
+                    if(isNaN(width)|| isNaN(height) || isNaN(length))
+                    {
+                        width="Klaida faile";
+                        height="Klaida faile";
+                        length="Klaida faile";
+                        amount=0;
+                    }
+                    else{
+                        let a1= parseFloat(width)  *  parseFloat(height) * 2;          
+                        let a2= parseFloat(width) * parseFloat(length) * 2;           
+                        let a3= parseFloat(length) * parseFloat(height)* 2;
+                        amount= a1 + a2 + a3; 
+                        sum+=amount; 
+                    }
+
+                    text+=`<tr> <td> ${width}</td>`;
+                    text+=`<td> ${height}</td>`;
+                    text+=`<td> ${length}</td>`;
+                    text+=`<td> ${amount}</td></tr>`;            
+
+                } 
+
+                text+=`<tr><td colspan='3'>TOTAL:</td><td>${sum}</td></table>`;    
+            }
+        }
+
+        document.getElementById("giftsTable").innerHTML = text;
+        });
+   
+</script>
+ </body>
+</html> 
