@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="#" />
+        <meta charset="UTF-8">  
+        <style>
+             .parent {
+        border: 1px solid black;
+        margin: 1rem;
+        padding: 2rem 2rem;
+        text-align: center;
+        }
+    .child1 {
+    display: inline-block;
+    border: 1px solid black;
+    padding: 1rem 1rem;
+    height:50px;
+    vertical-align: middle;
+    }
+    .child2 {
+    display: inline-block;
+    height:50px;
+    border: 1px solid black;
+    padding: 1rem 1rem;
+    vertical-align: middle;
+    }
+        </style>
+    </head>
+    <header>
+    <h1>Candy Cane Stripe Generator</h1>
+    </header>  
+
+    <section class="container"> 
+        
+        <label for="quantity">Quantity (between 2 and 30):</label>
+        <input type="number" id="quantity" name="quantity" min="2" max="30"> 
+        <label for="favcolor">Select first color:</label>
+        <input type="color" id="color1" name="favcolor" value="#ff0000">
+        <label for="favcolor">Select second color:</label>
+        <input type="color" id="color2" name="favcolor" value="#ff0000">  
+        <br><br>
+        &nbsp;&nbsp;<button type="button" onclick="generate();">Generate Stripes</button>
+       
+         <hr>
+
+    <div class='parent'>
+        <div id="childs">
+
+        </div>
+        
+      
+    </div>
+      </section>
+
+    <script src="11.js"></script> 
+
+</body>
