@@ -15,5 +15,5 @@ function tree(height)
       console.log(p1+layer); 
       layer=layer+"**";
    }
-
+   console.log("Merry Christmas!");
 }
