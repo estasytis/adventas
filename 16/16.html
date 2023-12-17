@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="shortcut icon" href="#" />
+<style>
+
+#div1
+{
+  position: fixed;
+  top: 100px;
+  right: 50px;
+}
+
+.image1 {
+  position: relative;
+  top: 5px;
+  right: 140px;
+  z-index: 200; 
+  
+}
+.image2 {
+  position: fixed;
+  top: 100px;
+  right: 50px; 
+  z-index: -100;
+ 
+}
+
+
+#div2 {
+  position: fixed;
+  top:100px;
+  left:200px;
+  margin:10px;
+ 
+}
+
+
+#div_snowman{
+position: fixed;
+  bottom: 50px;
+  right: 150px;
+ 
+  border: 3px solid #73AD21;
+}
+</style>
+
+<script>
+function allowDrop(ev) {
+  ev.preventDefault(); 
+}
+
+function drag(ev) { 
+   ev.dataTransfer.setData ("src", ev.target.id);
+}
+
+function drop(ev, target) {
+  ev.preventDefault(); 
+  var src = document.getElementById (ev.dataTransfer.getData ("src")); 
+  var srcParent = src.parentNode;
+  var tgt = ev.currentTarget.firstElementChild;
+ 
+  ev.currentTarget.replaceChild (src, tgt);
+  srcParent.appendChild (tgt);
+
+}
+</script>
+</head>
+<body>
+
+  <header>
+    <h1> Snowman Creator (change hat) </h1>    
+    <hr>
+ </header>  
+      <section class="container">       
+        <hr>      
+       
+
+        <div id="div1" class="dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+                  
+            <img id="drag1"   src="hat1.png" draggable="true" class="dragged-item image1"
+             ondragstart="drag(event, this)" width="181" height="136">
+            
+            <img    src="snowman2.png" draggable="false"    width="508" height="478" class="image2">
+        </div>
+
+        
+        <div id="div2"  ondrop="drop(event)" ondragover="allowDrop(event)">        
+
+            <img id="drag2" src="hat2.png" draggable="true" class="dragged-item image1"
+             ondragstart="drag(event, this)" width="181" height="136">
+
+            <img id="drag3" src="hat3.png" draggable="true" class="dragged-item image1"
+             ondragstart="drag(event, this)" width="181" height="136">
+        </div>      
+       
+     
+      </section>
+
+</body>
+</html>
+
